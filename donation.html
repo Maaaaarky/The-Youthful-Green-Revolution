@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Donation</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" href="logo-peeco1.png">
+
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  background-color: #f3fbfb;
+  font-family: "Open Sans", sans-serif;
+ text-align: center;
+  height: 100vh;
+  margin: 6rem 0;
+}
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 940px;
+  margin: auto;
+  text-align: center;
+}
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 300px;
+}
+.card-header img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding: 20px;
+  min-height: 250px;
+}
+.tag {
+  background-color: #ccc;
+  color: #fff;
+  border-radius: 50px;
+  font-size: 12px;
+  margin: 0;
+  padding: 2px 10px;
+  text-transform: uppercase;
+}
+.tag-teal {
+  background-color: #92d4e4;
+}
+.tag-purple {
+  background-color: #3d1d94;
+}
+.tag-pink {
+  background-color: #c62bcd;
+}
+.card-body h4 {
+  margin: 10px 0;
+}
+.card-body p {
+  font-size: 14px;
+  margin: 0 0 40px 0;
+  font-weight: 500;
+  color: rgb(70, 68, 68);
+}
+.user {
+  display: flex;
+  margin-top: auto;
+}
+.user img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+  object-fit: cover;
+}
+.user-info h5 {
+  margin: 0;
+}
+.user-info small {
+  color: #888785;
+}
+@media (max-width: 940px) {
+  .container {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+}
+button {
+ display: flex;
+ flex-direction: row;
+ justify-content: center;
+ align-items: center;
+ padding: 10px 33px;
+ border-radius: 16px;
+ border: 1px solid transparent;
+ color: #FFFFFF;
+ background-color: #1DC9A0;
+ font-size: 14px;
+ letter-spacing: 1px;
+ transition: all 0.15s linear;
+ margin-bottom: 10px;
+}
+
+button:hover {
+ background-color: rgba(29, 201, 160, 0.08);
+ border-color: #1DC9A0;
+ color: #1DC9A0;
+ transform: translateY(-5px) scale(1.05);
+}
+
+button:active {
+ background-color: transparent;
+ border-color: #1DC9A0;
+ color: #1DC9A0;
+ transform: translateY(5px) scale(0.95);
+}
+
+button:disabled {
+ background-color: rgba(255, 255, 255, 0.16);
+ color: #8E8E93;
+ border-color: #8E8E93;
+}
+/* Add this to change the button text color to white */
+button a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+/* Add this to change the button text color to white on hover */
+button:hover a {
+  color: #1DC9A0;
+}
+
+/* Add this to change the button text color to white on active state */
+button:active a {
+  color: #1DC9A0;
+}
+p{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: justify;
+}
+.footer-distributed {
+  background-color: #283000;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+  box-sizing: border-box;
+  width: 100%;
+  text-align: left;
+  font: normal 16px sans-serif;
+  padding: 20px 50px;
+}
+
+.footer-logo {
+    margin-top: -35px;
+    margin-bottom: -60px;
+    width: 80px; 
+    position: unique;
+    margin-left: 3.5rem;
+  }
+
+.footer-distributed .footer-contact  {
+  margin-top: -30px;
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  color: #8f9296;
+  font-size: 14px;
+}
+.footer-contact{
+  text-align: justify;
+}
+.footer-distributed .footer-contact .left {
+  text-decoration: none;
+  color: inherit;
+  transition: ease .25s;
+
+}
+.left{
+  margin-left: -40rem;
+    
+}
+/* Footer links */
+
+.footer-distributed p.footer-links {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffffff;
+  margin-left: 100px;
+  padding: 0;
+  transition: ease .25s;
+}
+
+.footer-distributed p.footer-links a {
+  margin-left: 100px;
+  text-decoration: none;
+  color: inherit;
+  transition: ease .25s;
+}
+
+
+.footer-distributed .footer-right {
+  float: right;
+  margin-top: 35px;
+  max-width: 180px;
+}
+
+.footer-distributed .footer-right a {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  background-color: #33383b;
+  border-radius: 2px;
+  font-size: 20px;
+  color: #ffffff;
+  text-align: center;
+  line-height: 35px;
+  margin-left: 3px;
+  transition:all .25s;
+}
+
+.footer-distributed .footer-right a:hover{transform:scale(1.1); -webkit-transform:scale(1.1);}
+
+.footer-distributed p.footer-links a:hover{text-decoration:underline;}
+
+/* Media Queries */
+
+@media (max-width: 600px) {
+  .footer-distributed .footer-left, .footer-distributed .footer-right {
+    text-align: center;
+  }
+  .footer-distributed .footer-right {
+    float: none;
+    margin: 0 auto 20px;
+  }
+  .footer-distributed .footer-left p.footer-links {
+    line-height: 1.8;
+  }
+}
+.header-nav{
+    background-color:rgba(0, 0, 0, 0.3);
+    color: #ffffff;
+    font-weight: bold;
+    box-shadow: 0px 3px 20px 1px rgba(54, 54, 54, 0.942);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+   
+    backdrop-filter: blur(8px);
+    position: fixed;
+    z-index: 2;
+   border-radius: 1rem;
+   top: 5px;
+   left: 10px;
+   right: 10px;
+
+    }
+.nav-item{
+    display: inline-block;
+    margin: 0 1rem;
+    
+}
+.nav-btn:hover{
+    color: #fff;
+    border: 1px solid #ffffff;
+    padding: .5rem;
+    transition: .4s;
+}
+.nav-btn{
+    padding: .5rem;
+    text-decoration: none;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    text-shadow: 0px 7px 12px rgba(0,0,0,0.5);
+}
+
+.logo-text{
+    margin: 0 0rem;
+    display: flex;
+    flex-wrap: wrap;
+    font-family: arial;
+    text-shadow: 0px 7px 12px rgba(0,0,0,0.5);
+}
+.nav-list{
+   display: flex;
+   justify-content: space-evenly;
+   flex-wrap: wrap;
+   line-height: 2rem;
+}
+.nav-menus{
+    display: flex;
+    justify-content: flex-end;
+    margin-left: 5rem;
+    flex-wrap: wrap;
+}
+.checkbtn{
+  font-size: 30px;
+  cursor: pointer;
+  display: none;
+
+}
+#check{
+  display: none;
+}
+@media (max-width: 858px){
+  .checkbtn{
+    display: block;
+
+  }
+  
+  .nav-list{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 40vh;
+    left: 0;
+    top:3rem;
+
+    background-color: #757575c9;
+    transition: all .5s;
+    border-radius: .5rem;
+    visibility: hidden;
+  }
+#check:hover{
+  .nav-list{
+    visibility: visible;
+  }
+}
+</style>
+</head>
+<body> 
+  <!-- Navbar (sit on top) -->
+<header class="header-nav">
+	<img src="logo-peeco1.png" alt="" width="5%" height="5%">
+		  <h2 class="logo-text">The Youtful Green Revolution</h2>
+		  <nav class="nav-menus">
+			  <ul class="nav-list">
+				  <li class="nav-item"><a href="INDEX.HTML" id="home-active" class="nav-btn">Home</a></li>
+            <li class="nav-item"><a href="guide.html" id="guide-avtive" class="nav-btn">Guide</a></li>
+            <li class="nav-item"><a href="index.html#about" id="about-active"  class="nav-btn">About</a></li>
+            <li class="nav-item"><a href="blog.HTML" id="org-active"  class="nav-btn">Organization</a></li>
+            <li class="nav-item"><a href="donation.html" id="donate"  class="nav-btn">Donate</a></li>
+				  
+				  
+			  </ul>
+			 
+			  <input type="checkbox" id="check">
+				  <label for="check" class="checkbtn">
+					<i class="fa-solid fa-bars"></i>
+				  </label>
+		  </nav>
+		  </header>
+    <h1 class="blog-head">GET INVOLVED</h1>
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+          <img src="https://paws.org.ph/wp-content/uploads/2022/06/Dog-Volunteers.jpg" alt="" />
+        </div>
+        <div class="card-body">
+          <span class="tag tag-teal">DONATE</span>
+          <h4>The Philippine Animal Welfare Society</h4>
+          <p>
+            We are a volunteer-based animal welfare NGO.<br>
+            Our main work is to educate and disseminate information concerning animal welfare, animal care, animal control, and other animal-related concerns.<br>
+            PAWS campaigns actively against animal cruelty and pet neglect, including activities like dogfights, horse fights, and wild animals being used for entertainment. <br><br>
+            <button> 
+                <a href="https://paws.org.ph/donate/" target="_blank">DONATE</a><br>
+            </button>
+            <button>
+                <a href="https://paws.org.ph/adopt/"target="_blank">ADOPT</a>
+            </button>
+          </p>
+          <div class="user">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTYjfKypZJs8Wa6OnTmB4ShP51EJa4Kc5WhTBanCbKnw&s" alt="" />
+            <div class="user-info">
+              <h5>PAWS</h5>
+              <small>1954</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    <div class="card">
+      <div class="card-header">
+        <img src="https://www.bark.org.ph/wp-content/uploads/2018/03/Slider-2-1024x474-1-1200x555.jpg" alt="" />
+      </div>
+      <div class="card-body">
+        <span class="tag tag-purple">DONATE</span>
+        <h4>
+          Bohol Animal Rescue & Kindness
+        </h4>
+        <p>
+            BARK is the only animal rescue and shelter organisation in Tagbilaran, Bohol, Philippines. Aside from the shelter, our long-term projects include daily feeding in the city pound and TNRM at several locations in Panglao.<br>
+            Our mission is to promote responsible and humane ownership of all animals; to save the lives and provide a safe place for abused, abandoned, and tortured animals; to provide a loving safe haven for abused, abandoned, and tortured animals; and to promote adoption of companion animals in loving forever homes.<br><br>
+
+          <button>
+            <a href="https://www.bark.org.ph/donate/"target="_blank">DONATE</a>
+        </button>
+        <button>
+            <a href="https://www.bark.org.ph/adopt/" target="_blank">ADOPT</a><br>
+        </button>    
+        <button>
+            <a href="https://www.bark.org.ph/volunteer/" target="_blank">VOLUNTEER</a>
+        </button>
+        </p>
+        <div class="user">
+          <img src="data:image/jpeg;base64,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" alt="" />
+          <div class="user-info">
+            <h5>BARK</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <img src="https://pawssionproject.org.ph/wp-content/uploads/2021/07/DSC_2895-scaled.jpg" alt="" />
+      </div>
+      <div class="card-body">
+        <span class="tag tag-pink">DONATE</span>
+        <h4>Pawssion Project Foundation Inc.</h4>
+        <p>
+            A non-profit organization dedicated to the rescue, rehabilitation and rehoming abused, abandoned and neglected animals. Pawssion Project began in Bacolod, armed simply with a lot of hope, courage and the unwavering support of a few good friends. After that first pound rescue, numerous reports poured in one after another, which eventually led to the opening of a second shelter in Bulacan in mid 2019. Since then, the journey has led Pawssion Project to more than 2000 rescues, and thankfully over 600 rehomed animals. <br><br>
+        <button>
+            <a href="https://donation.ph/DonatePawssionProject" target="_blank">DONATE</a><br>
+        </button>
+        <button>
+            <a href="https://pawssionproject.org.ph/adopt-from-pawssion-project/" target="_blank">ADOPT</a><br>
+        </button>    
+        <button>
+            <a href="https://pawssionproject.org.ph/sponsor-a-rescue/" target="_blank">SPONSOR</a>
+        </button>
+        </p>
+        <div class="user">
+          <img src="data:image/png;base64,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" alt="" />
+          <div class="user-info">
+            <h5>Malou Perez</h5>
+            <small>2018</small>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+          <img src="https://www.worldvision.org.ph/wp-content/uploads/2017/11/Watermark_Marawi3.png" alt="" />
+        </div>
+        <div class="card-body">
+        <span class="tag tag-teal">DONATE</span>
+          <h4>World Vision</h4>
+          <p>
+            Our focus is on helping the most vulnerable children overcome poverty and experience fullness of life. We help children of all backgrounds, even in the most dangerous places, inspired by our Christian faith. As the largest non-profit organization in the Philippines with over 65 years of experience, World Vision helps over 1.5 million children every year, with the support of thousands of Filipino sponsors and donors.<br><br>
+            <button> 
+                <a href="https://www.worldvision.org.ph/donate/" target="_blank">DONATE</a><br>
+            </button>
+            <button>
+                <a href="https://www.worldvision.org.ph/sponsor-child/"target="_blank">SPONSOR</a>
+            </button>
+          </p>
+          <div class="user">
+            <img src="data:image/jpeg;base64,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" alt="" />
+            <div class="user-info">
+              <h5>World Vision</h5>
+              <small>1947</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    <div class="card">
+      <div class="card-header">
+        <img src="https://www.savethechildren.org.ph/__resources/userfiles/image/program-stories/new_classrooms_for_students/01.jpg" alt="" />
+      </div>
+      <div class="card-body">
+        <span class="tag tag-purple">DONATE</span>
+        <h4>
+          SAVE THE CHILDREN
+        </h4>
+        <p>
+            Save the Children believes that every child deserves a future. In the Philippines and around the world, we work hard every day to give them a good start in life, protect them from violence and any other damage, and help them learn crucial skills. When crises affecting children strike, we are among the first to respond. We ensure children's unique needs are met and their voices heard. We deliver lasting results for millions of children, including those hardest to reach.<br><br>
+
+            We do whatever it takes for children, transforming their lives and the future we share.<br><br>
+          <button>
+            <a href="https://donate.savethechildren.org.ph/"target="_blank">DONATE</a>
+        </button>
+        </p>
+        <div class="user">
+          <img src="data:image/png;base64,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" alt="" />
+          <div class="user-info">
+            <h5>Save the Children</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <img src="https://www.btpa.org.au/wp-content/uploads/2020/07/14079702_1092929460790306_5914533567519864099_n.jpg" alt="" />
+      </div>
+      <div class="card-body">
+        <span class="tag tag-pink">DONATE</span>
+        <h4>Bahay Tuluyan</h4>
+        <p>
+            We are a children’s rights organization that believes in the dignity of all children. We work to prevent and respond to abuse and violence against children and to ensure all children’s rights are fulfilled and protected. We work in dynamic collaboration with and empowerment of children, youth, families and the community. <br><br>
+        <button>
+            <a href="https://www.bahaytuluyan.org/get-involved/donate" target="_blank">DONATE</a><br>
+        </button>
+        <button>
+            <a href="https://www.bahaytuluyan.org/get-involved/support" target="_blank">SUPPORT</a><br>
+        </button>    
+        </p>
+        <div class="user">
+          <img src="https://images.squarespace-cdn.com/content/v1/636733329cc0ea5854b55e66/9929b766-c7b3-410a-871a-9dc75e117fa6/Bahay+Tuluyan+Logo.png?format=1500w" alt="" />
+          <div class="user-info">
+            <h5>Bahay Tuluyan</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Footer -->
+<footer class="footer-distributed">
+	<a href="#"><img class="footer-logo" src="logo-peeco.png" alt="Company Logo"></a>
+
+		<div class="footer-right">
+
+			<a href="#"><i class="fab fa-facebook"></i></a>
+			<a href="#"><i class="fab fa-twitter"></i></a>
+			<a href="#"><i class="fab fa-linkedin"></i></a>
+			<a href="#"><i class="fab fa-github"></i></a>
+
+		</div>
+		<div class="footer-middle">
+			<p class="footer-links">
+				<a class="link-1" href="guide.html">Guide</a>
+				<a href="blog.HTML">Organization</a>
+				<a href="#">Get Involved</a>
+			</p>
+		</div>
+		<div class="footer-left">
+			<p class="footer-contact">
+				<a class="left">Phone: 0969123069</a>
+				<a class="left"> Email: tygrevolution@gmail.com</a>
+				<a class="left">The Youthful Green Revolution &copy; 2023</a>
+			</p>
+		</div>
+	</footer>
+</body>
+</html>

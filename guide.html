@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Guide</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" href="logo-peeco1.png">
+<style>
+  .details h1 {
+  font-size: 3em;
+  color: #fefae0 ;
+}
+
+ :root {
+  --base__color-1: #000;
+  --base__color-2: #FFF;
+}
+
+:root {
+  --bg-color: #283618  ;
+}
+
+.section-container {
+  background-color: var(--bg-color);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4rem;
+}
+
+.cards-container {
+  width: 100%;
+  max-width: 290px;
+  position: relative;
+}
+
+.slide-button {
+  position: absolute;
+  transform: translate(0, -45%);
+  top: 45%;
+  right: -140px;
+  width: 38px;
+  height: 38px;
+  border-radius: 60px;
+  background: rgba(var(--base__color-2-rgb), 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.slide-button::after {
+  content: '';
+  display: block;
+  margin-right: 30px;
+  width: 40px;
+  height: 15px;
+  background-repeat: no-repeat;
+  background-image: url("data:image/svg+xml,%3Csvg width='40px' height='16px' viewBox='0 0 40 16' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E %3Cg id='Elements' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E %3Cg id='01_Elements-SOCIAL_06_01' transform='translate(-723.000000, -530.000000)' fill='%23FFFFFF' fill-rule='nonzero'%3E %3Cg id='Element' transform='translate(323.000000, 293.000000)'%3E %3Cg id='Button' transform='translate(400.000000, 226.000000)'%3E %3Cg id='Group' transform='translate(20.000000, 19.000000) rotate(-90.000000) translate(-20.000000, -19.000000) translate(12.000000, -1.000000)'%3E %3Cpath d='M8,-0.005 C8.64720869,-0.005 9.1795339,0.486874664 9.24354639,1.11719476 L9.25,1.245 L9.25,35.728 L13.3661165,31.6111165 C13.8217282,31.1555048 14.5415486,31.1251307 15.0323881,31.5199942 L15.1338835,31.6111165 C15.5894952,32.0667282 15.6198693,32.7865486 15.2250058,33.2773881 L15.1338835,33.3788835 L8.88388348,39.6288835 C8.85415028,39.6586167 8.82292614,39.6868589 8.79033283,39.7134885 L8.88388348,39.6288835 C8.83611292,39.676654 8.78543782,39.7197498 8.73242665,39.7581708 L8.63335299,39.8230183 L8.63335299,39.8230183 L8.54709706,39.8692811 L8.54709706,39.8692811 L8.4332961,39.9178207 L8.4332961,39.9178207 L8.35305808,39.944444 L8.35305808,39.944444 L8.22623179,39.9745798 L8.22623179,39.9745798 L8.09592556,39.9913741 L8.09592556,39.9913741 L8,39.995 L8,39.995 L7.9207504,39.9925284 L7.9207504,39.9925284 L7.80882215,39.980391 L7.80882215,39.980391 L7.7207289,39.9636857 L7.7207289,39.9636857 L7.60490332,39.9312742 L7.60490332,39.9312742 L7.48583329,39.8846939 L7.48583329,39.8846939 L7.36640634,39.8227553 L7.36640634,39.8227553 L7.2675769,39.7580563 L7.2675769,39.7580563 L7.20966717,39.7134885 L7.1618193,39.6723498 L7.1618193,39.6723498 L0.866116524,33.3788835 C0.377961159,32.8907281 0.377961159,32.0992719 0.866116524,31.6111165 C1.3217282,31.1555048 2.04154862,31.1251307 2.53238813,31.5199942 L2.63388348,31.6111165 L6.75,35.728 L6.75,1.245 C6.75,0.554644063 7.30964406,-0.005 8,-0.005 Z' id='Path'%3E%3C/path%3E %3C/g%3E %3C/g%3E %3C/g%3E %3C/g%3E %3C/g%3E %3C/svg%3E");
+}
+
+.slide-button:hover {
+  background: rgba(var(--base__color-2-rgb), 0.2);
+  transform: translate(4px, -45%);
+}
+
+.cards-wrapper {
+  width: 100%;
+  position: relative;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding: 30px 30px 55px;
+  background: var(--base__color-2);
+  border-radius: 20px;
+  box-shadow: 0px 8px 40px -30px rgba(var(--base__color-1-rgb), 0.7);
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+  transition: opacity 0.5s 1 normal forwards ease-in-out;
+  opacity: 0;
+}
+
+.image-wrapper {
+  transition: transform 0.5s;
+  will-change: transform;
+}
+
+.image {
+  width: calc(100% + 28%);
+  transform: translate(-20%, 0);
+  height: 200px;
+  box-shadow: 0px 20px 30px -15px rgba(var(--base__color-1-rgb), 0.45);
+  margin-bottom: 30px;
+  user-select: none;
+  overflow: hidden;
+  transition: all 0.5s;
+}
+
+.image img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  filter: contrast(1.1) hue-rotate(12deg) brightness(0.9) saturate(0.8);
+  border-radius: 10px;
+}
+
+h3 {
+  width: 100%;
+  margin-bottom: 12px;
+  font-weight: 900;
+  font-size: 22px;
+  line-height: 24px;
+  letter-spacing: -0.5px;
+  color: var(--base__color-1);
+  font-family: var(--font-family__secondary);
+  user-select: none;
+  transition: all 0.5s;
+}
+
+p {
+  width: 100%;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: -0.5px;
+  color: var(--base__color-1);
+  font-family: var(--font-family__base);
+  user-select: none;
+  transition: all 0.5s;
+}
+
+.button {
+  user-select: none;
+  position: absolute;
+  bottom: -25px;
+  left: 30px;
+  border-radius: 10px;
+  font-family: var(--font-family__secondary);
+  background: linear-gradient(135deg, rgba(var(--base__color-1-rgb), 1) 0%, rgba(var(--base__color-4-rgb), 1) 100%);
+  color: var(--base__color-2);
+  font-size: 18px;
+  padding: 0 16px;
+  line-height: 18px;
+  height: 50px;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0px 15px 20px -15px rgba(var(--base__color-4-rgb), 0.7);
+  transition: all 0.3s;
+}
+
+.button:hover {
+  left: 32px;
+  box-shadow: 0px 15px 20px -14px rgba(var(--base__color-4-rgb), 0.85);
+}
+
+.card.active {
+  opacity: 1;
+}
+
+.card.inactive {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.card.inactive:hover {
+  cursor: pointer;
+}
+
+.card.inactive:nth-child(2) {
+  transform: translate(20px, -20px) rotate(6deg);
+}
+
+.card.inactive:nth-child(3) {
+  transform: translate(40px, -40px) rotate(6deg);
+}
+
+.card.inactive:nth-child(4) {
+  transform: translate(60px, -60px) rotate(6deg);
+}
+
+.card.inactive:nth-child(5) {
+  transform: translate(80px, -80px) rotate(6deg);
+}
+
+.infobox-container,
+.trademark {
+  display: none;
+}
+
+@media screen and (min-width: 1024px) {
+
+  .trademark {
+    display: block;
+    position: absolute;
+    z-index: 99;
+    left: 50px;
+    top: 50px;
+    max-width: 70px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .trademark svg {
+    width: 100%;
+  }
+
+  .trademark:hover {
+    transform: translate(0, -2px);
+  }
+
+  .infobox-container {
+    display: block;
+    position: absolute;
+    right: 50px;
+    bottom: 50px;
+    z-index: 99;
+  }
+
+  .infobox-container .social-media-links {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .infobox-container .social-media-links a {
+    margin: 0 15px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .infobox-container .social-media-links a:hover {
+    transform: translate(0, -2px);
+  }
+
+  .infobox-container .social-media-links a:hover svg path {
+    fill: #323232;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-distributed {
+  background-color: #283000;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+  box-sizing: border-box;
+  width: 100%;
+  text-align: left;
+  font: normal 16px sans-serif;
+  padding: 20px 50px;
+}
+
+.footer-logo {
+  margin-top: 40px;
+    margin-bottom: -60px;
+    width: 90px;
+    position: unique;
+    margin-left: 1.5rem;
+  }
+
+.footer-distributed .footer-contact  {
+  margin-top: -30px;
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  color: #8f9296;
+  font-size: 14px;
+}
+.footer-contact{
+  text-align: justify;
+}
+.footer-distributed .footer-contact .left {
+  text-decoration: none;
+  color: inherit;
+  transition: ease .25s;
+}
+/* Footer links */
+
+.footer-distributed p.footer-links {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffffff;
+  margin-left: 100px;
+  padding: 0;
+  transition: ease .25s;
+}
+
+.footer-distributed p.footer-links a {
+  margin-left: -100px;
+    text-decoration: none;
+    color: inherit;
+    transition: ease .25s;
+
+}
+.footer-distributed .footer-right {
+  float: right;
+  margin-top: 35px;
+  max-width: 180px;
+}
+
+.footer-distributed .footer-right a {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  background-color: #33383b;
+  border-radius: 2px;
+  font-size: 20px;
+  color: #ffffff;
+  text-align: center;
+  line-height: 35px;
+  margin-left: 3px;
+  transition:all .25s;
+}
+
+.footer-distributed .footer-right a:hover{transform:scale(1.1); -webkit-transform:scale(1.1);}
+
+.footer-distributed p.footer-links a:hover{text-decoration:underline;}
+
+/* Media Queries */
+
+@media (max-width: 600px) {
+  .footer-distributed .footer-left, .footer-distributed .footer-right {
+    text-align: center;
+  }
+  .footer-distributed .footer-right {
+    float: none;
+    margin: 0 auto 20px;
+  }
+  .footer-distributed .footer-left p.footer-links {
+    line-height: 1.8;
+  }
+}
+
+body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  background-color: var(--bg-color);
+  font-family: var(--font-family__base);
+}
+.header-nav{
+    background-color:rgba(0, 0, 0, 0.3);
+    color: #ffffff;
+    font-weight: bold;
+    box-shadow: 0px 3px 20px 1px rgba(54, 54, 54, 0.942);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+   
+    backdrop-filter: blur(8px);
+    position: fixed;
+    z-index: 2;
+   border-radius: 1rem;
+   top: 5px;
+   left: 10px;
+   right: 10px;
+
+    }
+.nav-item{
+    display: inline-block;
+    margin: 0 1rem;
+    
+}
+.nav-btn:hover{
+    color: #fff;
+    border: 1px solid #ffffff;
+    padding: .5rem;
+    transition: .4s;
+}
+.nav-btn{
+    padding: .5rem;
+    text-decoration: none;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    text-shadow: 0px 7px 12px rgba(0,0,0,0.5);
+}
+
+.logo-text{
+    margin: 0 0rem;
+    display: flex;
+    flex-wrap: wrap;
+    font-family: arial;
+    text-shadow: 0px 7px 12px rgba(0,0,0,0.5);
+}
+.nav-list{
+   display: flex;
+   justify-content: space-evenly;
+   flex-wrap: wrap;
+   line-height: 2rem;
+}
+.nav-menus{
+    display: flex;
+    justify-content: flex-end;
+    margin-left: 5rem;
+    flex-wrap: wrap;
+}
+.checkbtn{
+  font-size: 30px;
+  cursor: pointer;
+  display: none;
+
+}
+#check{
+  display: none;
+}
+@media (max-width: 858px){
+  .checkbtn{
+    display: block;
+
+  }
+  
+  .nav-list{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 40vh;
+    left: 0;
+    top:3rem;
+
+    background-color: #757575c9;
+    transition: all .5s;
+    border-radius: .5rem;
+    visibility: hidden;
+  }
+#check:hover{
+  .nav-list{
+    visibility: visible;
+  }
+}
+
+</style>
+</head>
+<body>
+
+  <!-- Navbar (sit on top) -->
+  <header class="header-nav">
+    <img src="logo-peeco1.png" alt="" width="5%" height="5%">
+        <h2 class="logo-text">The Youtful Green Revolution</h2>
+        <nav class="nav-menus">
+          <ul class="nav-list">
+            <li class="nav-item"><a href="INDEX.HTML" id="home-active" class="nav-btn">Home</a></li>
+            <li class="nav-item"><a href="guide.html" id="guide-active" class="nav-btn">Guide</a></li>
+            <li class="nav-item"><a href="index.html#about" id="about-active"  class="nav-btn">About</a></li>
+            <li class="nav-item"><a href="blog.HTML" id="org-active"  class="nav-btn">Organization</a></li>
+            <li class="nav-item"><a href="donation.html" id="donate"  class="nav-btn">Donate</a></li>
+
+            
+          </ul>
+         
+          <input type="checkbox" id="check">
+            <label for="check" class="checkbtn">
+            <i class="fa-solid fa-bars"></i>
+            </label>
+        </nav>
+        </header>
+
+
+  <section class="section-container">
+    <div class="container">
+      <div class="details">
+        <h1>Students' Guide to Conserving the Natural Environment:</h1>  
+      </div>  
+    </div> <!-- Close the div with class "container" -->
+
+    <div class="cards-container">
+      <div class="cards-wrapper">
+        <div data-card="0" class="card active">
+          <div class="image-wrapper">
+            <div class="image image-1"><img draggable="false" src="https://mymodernmet.com/wp/wp-content/uploads/2019/05/student-tree-planting-law-philippines-1.jpg"></div>
+          </div>
+          <h3>Introduction:</h3>
+          <p>As students, you can play a vital role in conserving and saving our natural environment. By making small changes in your everyday lives, you can contribute to a healthier planet for future generations. <br><br>Check out these practical tips on how students can help protect our natural environment.</p>
+        </div>
+
+        <div data-card="1" class="card inactive">
+          <div class="image-wrapper">
+            <div class="image"><img draggable="false" src="https://images.squarespace-cdn.com/content/v1/58e3664637c581bffa7b5e75/1549447043436-G5XYI3A8PT4QVGFOSTXZ/image-asset.jpeg"></div>
+          </div>
+          <h3>"Reduce, Reuse, Recycle"</h3>
+          <p>- Use both sides of paper and opt for digital alternatives when possible. <br><br>
+            - Carry a reusable water bottle, lunchbox, and shopping bag to reduce single-use plastic waste. <br><br>
+            - Recycle paper, plastic, glass, and aluminum properly.
+          </p>
+          </div>
+
+        <div data-card="2" class="card inactive">
+          <div class="image-wrapper">
+            <div class="image"><img draggable="false" src="https://freshbangkok.com/wp-content/uploads/2016/12/Save-Energy-Bangkok-Fresh.jpg"></div>
+          </div>
+          <h3>"Save Energy"</h3>
+          <p>- Turn off lights and unplug electronic devices when not in use. <br><br>
+            - Use energy-efficient light bulbs and appliances.<br><br>
+            - Take advantage of natural light and fresh air whenever possible.
+          </p>
+          </div>
+
+        <div data-card="3" class="card inactive">
+          <div class="image-wrapper">
+            <div class="image"><img draggable="false" src="https://cdn.shopify.com/s/files/1/1172/5864/files/A_Guide_to_Water_Conservation_-_Saving_Water_and_the_Earth_480x480.jpg?v=1644994401"></div>
+          </div>
+          <h3>"Conserve Water"</h3>
+          <p>- Limit shower time and fix leaking faucets promptly. <br><br>
+            - Use water-efficient appliances and fixtures.<br><br>
+            - Collect rainwater for watering plants.
+          </p>
+
+          </div>
+          <div data-card="4" class="card inactive">
+            <div class="image-wrapper">
+              <div class="image"><img draggable="false" src="https://careers.snclavalin.com/img/67b4c57c-223c-4d2e-8335-08d9f10ce754"></div>
+            </div>
+            <h3>"Practice Sustainable Transportation"</h3>
+            <p>
+              - Walk, bike, or use public transportation instead of relying on cars.<br><br>
+              - Carpool with classmates for commuting to school or extracurricular activities.<br><br>
+              - Encourage your school to promote and support sustainable transportation options.
+              </p>    
+            </div>
+
+            <div data-card="5" class="card inactive">
+              <div class="image-wrapper">
+                <div class="image"><img draggable="false" src="https://staging.pd.co.ke/wp-content/uploads/2020/06/World-Environment-Day-800x500.gif"></div>
+              </div>
+              <h3>"Protect Biodiversity"</h3>
+               <p>
+              - Learn about local ecosystems and wildlife. <br><br>
+              - Plant native species in your garden or school grounds to provide habitat for wildlife.<br><br>
+              - Participate in community initiatives like tree planting or habitat restoration projects.
+              </p>
+
+              </div>
+              <div data-card="6" class="card inactive">
+                <div class="image-wrapper">
+                  <div class="image"><img draggable="false" src="https://chimesnewspaper.com/wp-content/uploads/2017/02/OP01-AC_EP_PhotoIllustration-900x600.jpg"></div>
+                </div>
+                <h3>"Be Mindful of Consumption"</h3>
+                <p>
+                  - Avoid unnecessary purchases and opt for secondhand or eco-friendly products.<br><br>
+                  - Pack a waste-free lunch by using reusable containers and utensils.<br><br>
+                  - Support businesses that prioritize sustainable practices.
+                  </p>        
+                </div>
+                <div data-card="7" class="card inactive">
+                  <div class="image-wrapper">
+                    <div class="image"><img draggable="false" src="https://therealtimereport.com/wp-content/uploads/2020/02/sub-copy.jpg"></div>
+                  </div>
+                  <h3>"Educate and Raise Awareness"</h3>
+                  <p>
+                    - Share your knowledge with classmates, friends, and family.<br><br>
+                    - Organize environmental clubs or events in your school.<br><br>
+                    - Use social media platforms to spread awareness about environmental issues and solutions.
+                  </p>
+        
+                  </div>
+                  <div data-card="8" class="card inactive">
+                    <div class="image-wrapper">
+                      <div class="image"><img draggable="false" src="https://www.amust.com.au/wp-content/uploads/2018/03/P25_environment.jpg"></div>
+                    </div>
+                    <h3>Conclusion:</h3>
+                    <p>Remember, every small action counts! By adopting these eco-friendly practices and inspiring others to do the same, students can make a significant impact on conserving and saving our natural environment. Together, we can build a sustainable future for generations to come.</p>
+                    </div>
+      </div>
+      <a href="#" aria-label="Slide the cards" class="slide-button"></a>
+    </div>
+  </section>
+
+    <!-- Footer -->
+<footer class="footer-distributed">
+	<a href="#"><img class="footer-logo" src="logo-peeco.png" alt="Company Logo"></a>
+
+		<div class="footer-right">
+
+			<a href="#"><i class="fab fa-facebook"></i></a>
+			<a href="#"><i class="fab fa-twitter"></i></a>
+			<a href="#"><i class="fab fa-linkedin"></i></a>
+			<a href="#"><i class="fab fa-github"></i></a>
+
+		</div>
+		<div class="footer-middle">
+			<p class="footer-links">
+				<a class="link-1" href="guide.html">Guide</a>
+				<a href="blog.HTML">Organization</a>
+				<a href="#">Get Involved</a>
+			</p>
+		</div>
+		<div class="footer-left">
+			<p class="footer-contact">
+				<a class="left">Phone: 0969123069</a>
+				<a class="left"> Email: tygrevolution@gmail.com</a>
+				<a class="left">The Youthful Green Revolution &copy; 2023</a>
+			</p>
+		</div>
+	</footer>
+  <script>
+(function () {
+  document.addEventListener('DOMContentLoaded', function () {
+
+      'use strict';
+
+      Cards.init();
+      conf.InfoBox();
+
+  });
+}());
+
+const Cards = {
+
+  init: () => {
+      Cards.triggerCardChange();
+      Cards.directlyClickOnCards();
+      Cards.imageHoverPerspective();
+  },
+
+  //  Change the active Card on directly clicking on it
+  // - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  directlyClickOnCards: () => {
+      let cards = conf.qSA('.card');
+      if(cards.length){
+          cards.forEach(function(item){
+             item.onclick = () => {
+                 if(!item.classList.contains('active')){
+                     // search the active card
+                     for(let i = 0; i < cards.length; i++){
+                         if(cards[i].classList.contains('active')){
+                             let dataCard = cards[i];
+                             dataCard.classList.add('inactive');
+                             dataCard.classList.remove('active');
+                             break;
+                         }
+                     }
+
+                     conf.qS('.cards-wrapper').prepend(item);
+                     item.classList.remove('inactive');
+                     item.classList.add('active');
+                 }
+             }
+          });
+      }
+  },
+
+  //  Change the active Card
+  // - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  triggerCardChange: () => {
+
+      let arrow = conf.qS('.slide-button'),
+          cards = conf.qSA('.card');
+
+      if(arrow){
+          arrow.onclick = () => {
+              if(cards.length){
+                  for(let i = 0; i < cards.length; i++){
+                      if(cards[i].classList.contains('active')){
+                          let dataCard = cards[i];
+                          getNextCard(dataCard);
+                          break;
+                      }
+                  }
+              }
+
+              function getNextCard(prevCard){
+
+                  for(let i = 0; i < cards.length; i++){
+                      let dataCard = parseInt(prevCard.getAttribute('data-card'), 10),
+                          nextCard = parseInt(cards[i].getAttribute('data-card'), 10);
+
+                      if((dataCard + 1) === nextCard){
+                          prevCard.classList.add('inactive');
+                          prevCard.classList.remove('active');
+                          conf.qS('.cards-wrapper').prepend(cards[i]);
+                          cards[i].classList.remove('inactive');
+                          cards[i].classList.add('active');
+                          break;
+                      }else if((dataCard + 1) >= cards.length){
+                          prevCard.classList.add('inactive');
+                          prevCard.classList.remove('active');
+                          conf.qS('.cards-wrapper').prepend(cards[i]);
+                          cards[0].classList.remove('inactive');
+                          cards[0].classList.add('active');
+                          break;
+                      }
+                  }
+              }
+          };
+      }
+  },
+
+  //  Change the Image perspective on mouseover
+  // - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  imageHoverPerspective: () => {
+      let cards = conf.qSA('.card');
+      if(cards.length){
+          cards.forEach(function(card){
+              let image = conf.CqS(card, '.image-wrapper');
+              image.onmousemove = (e) => {
+
+                  let offset      = image.getBoundingClientRect(),
+                      elX         = offset.left + document.body.scrollTop,
+                      elY         = offset.top + document.body.scrollTop,
+                      elWidth     = image.offsetWidth,
+                      elHeight    = image.offsetHeight,
+                      intensity   = 11,
+                      mouseX      = e.pageX,
+                      mouseY      = e.pageY,
+                      rotateY     = ((elWidth/2 - (mouseX - elX)) / (elWidth/2) * intensity),
+                      rotateX     = (elHeight/2 - (mouseY - elY)) / (elHeight/2) * intensity;
+
+                  let style = 'transform: rotateY(' + rotateY + 'deg) rotateX(' + rotateX + 'deg)';
+                  image.setAttribute('style', style);
+              };
+              image.onmouseleave = () => {
+                  image.removeAttribute('style');
+              };
+          });
+      }
+  },
+};
+
+//  Config Functions
+// - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+const conf = {
+  qS: (selector) => {
+      return document.querySelector(selector);
+  },
+  qSA: (selector) => {
+      return document.querySelectorAll(selector);
+  },
+  CqS: (container, selector) => {
+      return container.querySelector(selector);
+  },
+  InfoBox: () => {
+      let toggle = conf.qS('.infobox-container .infobox-toggle'),
+          detail = conf.qS('.infobox-container .infobox-detail-container');
+
+      if(toggle){
+          toggle.onclick = (e) => {
+              e.preventDefault();
+              detail.classList.toggle('active');
+          }
+      }
+  }
+};
+  </script>
+</body>
+</html>

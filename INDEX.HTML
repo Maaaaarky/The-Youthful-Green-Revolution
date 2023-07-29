@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>PEECO</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="icon" href="logo-peeco1.png">
+<style>
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.header-nav{
+    background-color:rgba(0, 0, 0, 0.3);
+    color: #ffffff;
+    font-weight: bold;
+    box-shadow: 0px 3px 20px 1px rgba(54, 54, 54, 0.942);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+   
+    backdrop-filter: blur(8px);
+    position: fixed;
+    z-index: 2;
+   border-radius: 1rem;
+   top: 5px;
+   left: 10px;
+   right: 10px;
+
+    }
+.nav-item{
+    display: inline-block;
+    margin: 0 1rem;
+    
+}
+.nav-btn:hover{
+    color: #fff;
+    border: 1px solid #ffffff;
+    padding: .5rem;
+    transition: .4s;
+}
+.nav-btn{
+    padding: .5rem;
+    text-decoration: none;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    text-shadow: 0px 7px 12px rgba(0,0,0,0.5);
+}
+
+.logo-text{
+    margin: 0 0rem;
+    display: flex;
+    flex-wrap: wrap;
+    font-family: arial;
+    text-shadow: 0px 7px 12px rgba(0,0,0,0.5);
+}
+.nav-list{
+   display: flex;
+   justify-content: space-evenly;
+   flex-wrap: wrap;
+   line-height: 2rem;
+}
+.nav-menus{
+    display: flex;
+    justify-content: flex-end;
+    margin-left: 5rem;
+    flex-wrap: wrap;
+}
+#home{
+  background: url(FOREST.jpg);
+  background-size: cover;
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  
+}
+.banner-center{
+  position: absolute;
+  z-index:1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  flex-direction: column;
+
+}
+.banner{
+  font-weight: bolder;
+  background-color: #00000023;
+  padding: 1rem;
+  backdrop-filter: blur(2px);
+  border-radius: 1rem;
+  color: white;
+  
+}
+.banner-text{
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  width: 50%;
+  color: white;
+}
+@keyframes down {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+.down{
+  display: flex;
+  align-items: end;
+  flex-wrap: wrap;
+  position: inherit;
+  top: 90%;
+  color: #ffffff;
+  
+}
+.down i{
+  animation: down 2s infinite;
+}
+.fa-solid, .fa-chevron-down{
+  font-size: 2rem;
+}
+
+#about{
+     background: #000080;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    
+    
+}
+.about-container{
+  margin: 2rem;
+}
+#about-text{
+    background-color:rgba(255, 255, 255, 0.7);
+    color: #000000;
+    box-shadow: 0px 3px 20px 1px rgba(0,0,0,0.3);
+    backdrop-filter: blur(8px);
+   
+    
+}
+.about-content{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
+.checkbtn{
+  font-size: 30px;
+  cursor: pointer;
+  display: none;
+
+}
+#check{
+  display: none;
+}
+.footer-distributed {
+  background-color: #283000;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+  box-sizing: border-box;
+  width: 100%;
+  text-align: left;
+  font: normal 16px sans-serif;
+  padding: 20px 50px;
+}
+
+.footer-logo {
+    margin-top: -35px;
+    margin-bottom: -100px;
+    width: 80px; 
+    position: unique;
+  }
+
+.footer-distributed p.footer-contact  {
+  margin-top: -30px;
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  color: #8f9296;
+  font-size: 14px;
+}
+
+.footer-distributed p.footer-contact .left {
+  text-decoration: none;
+  color: inherit;
+  transition: ease .25s;
+
+}
+/* Footer links */
+
+.footer-distributed p.footer-links {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffffff;
+  margin-left: 100px;
+  padding: 0;
+  transition: ease .25s;
+}
+
+.footer-distributed p.footer-links a {
+  margin-left: 100px;
+  text-decoration: none;
+  color: inherit;
+  transition: ease .25s;
+}
+
+
+.footer-distributed .footer-right {
+  float: right;
+  margin-top: 35px;
+  max-width: 180px;
+}
+
+.footer-distributed .footer-right a {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  background-color: #33383b;
+  border-radius: 2px;
+  font-size: 20px;
+  color: #ffffff;
+  text-align: center;
+  line-height: 35px;
+  margin-left: 3px;
+  transition:all .25s;
+}
+
+.footer-distributed .footer-right a:hover{transform:scale(1.1); -webkit-transform:scale(1.1);}
+
+.footer-distributed p.footer-links a:hover{text-decoration:underline;}
+
+/* Media Queries */
+
+@media (max-width: 600px) {
+  .footer-distributed .footer-left, .footer-distributed .footer-right {
+    text-align: center;
+  }
+  .footer-distributed .footer-right {
+    float: none;
+    margin: 0 auto 20px;
+  }
+  .footer-distributed .footer-left p.footer-links {
+    line-height: 1.8;
+  }
+}
+.card-container{
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+            align-items: center;
+            
+        }
+        .banner-content{
+          color: black;
+        }
+
+        .container-one{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background: whitesmoke;
+            width: 100%;
+            flex-wrap: wrap;
+        }
+        .card-one{
+           
+            padding: 1rem 2rem;
+            max-width: 30%;
+            height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-bottom: solid 1px black;
+          margin: 0 1rem;
+          flex-wrap: wrap;
+          
+          
+        }
+        .card-one:hover{
+            background: #adff2f;
+            transform: translate(0,-4px);
+            transition: .5s;
+            border: none;
+            box-shadow: 0px 3px 20px 1px rgba(152, 151, 151, 0.618);
+            
+
+        }
+        .card-one p{
+            text-align: justify;
+        }
+
+@media (max-width: 858px){
+  .checkbtn{
+    display: block;
+
+  }
+  
+  .nav-list{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 40vh;
+    left: 0;
+    top:3rem;
+
+    background-color: #757575c9;
+    transition: all .5s;
+    border-radius: .5rem;
+    visibility: hidden;
+  }
+#check:hover{
+  .nav-list{
+    visibility: visible;
+  }
+}
+p{
+  text-align: justify;
+}
+
+</style>
+</head>
+<body>
+
+<!-- Navbar (sit on top) -->
+<header class="header-nav">
+  <img src="logo-peeco1.png" alt="" width="5%" height="5%">
+        <h2 class="logo-text">The Youthful Green Revolution</h2>
+        <nav class="nav-menus">
+            <ul class="nav-list">
+              <li class="nav-item"><a href="INDEX.HTML" id="home-active" class="nav-btn">Home</a></li>
+              <li class="nav-item"><a href="guide.html" id="guide-active" class="nav-btn">Guide</a></li>
+              <li class="nav-item"><a href="index.html#about" id="about-active"  class="nav-btn">About</a></li>
+              <li class="nav-item"><a href="blog.HTML" id="org-active"  class="nav-btn">Organization</a></li>
+              <li class="nav-item"><a href="donation.html" id="donate"  class="nav-btn">Donate</a></li>
+                
+            </ul>
+           
+            <input type="checkbox" id="check">
+                <label for="check" class="checkbtn">
+                  <i class="fa-solid fa-bars"></i>
+                </label>
+        </nav>
+        </header>
+       
+
+<!-- Header -->
+<header class="w3-display-container w3-content w3-wide" style="max-width:1600px;min-width:500px" id="home">
+  <img class="w3-image" src="" alt="" width="1600" height="800">
+  <div class="banner-center">
+    <h1 class="banner">WELCOME</h1>
+    <h5 class="banner-text">Welcome to our website dedicated to promoting environmental awareness among students and driving positive change for a greener world.</h5>
+    <div class="down">
+      <i class="fa-solid fa-chevron-down"></i>
+    </div>
+  </div>
+  
+</header>
+
+<!-- Page content -->
+<div class="container-one">
+  <h2 class="banner-content">TIPS and IDEAS</h2>
+  <div class="card-container">
+      <div class="card-one">
+          <p>Reduce, Reuse, Recycle: By practicing these three simple habits, students can significantly contribute to waste reduction and resource conservation, playing a pivotal role in building a more sustainable and environmentally responsible society. </p>
+      </div>
+      <div class="card-one">
+          <p>Make a conscious effort to use eco-friendly transportation options like biking, walking, or carpooling to reduce greenhouse gas emissions and lessen our ecological footprint on the planet. Embracing these sustainable modes of transportation not only benefits the environment but also promotes a healthier lifestyle, fosters a sense of community, and contributes to easing traffic congestion in our local areas.</p>
+      </div>
+      <div class="card-one">
+          <p>Energy conservation starts with small actions, such as turning off lights and unplugging electronics when not in use. These seemingly minor practices play a crucial role in reducing energy waste, promoting sustainability, and mitigating the environmental impact of our daily activities.</p>
+      </div>
+  </div>
+  
+</div>
+<div class="w3-content" style="max-width:100%">
+
+  <!-- About Section -->
+  <div class="w3-row w3-padding-64" id="about">
+    <div class="about-container">
+    <div class="w3-col m6 w3-padding-large w3-hide-small">
+     <img src="logo-peeco1.png" class="w3-round w3-image" alt="Table Setting" width="350" height="650">
+    </div>
+
+    <div class="w3-col m6 w3-padding-large" id="about-text">
+      <h1 class="w3-center">ABOUT</h1>
+      <h5 class="w3-center">The Youthful Green Revolution</h5>
+      <p class="about-content">
+        Welcome to our website, a space created by a group of dedicated students who share a deep love and appreciation for the wonders of nature. As students, we recognize the crucial role we can play in conserving and protecting the natural environment that sustains us all.</p>
+      <p class="about-content">At The Youthful Green Revolution, our mission is to inspire fellow students and nature enthusiasts to connect with and preserve the beauty and diversity of the natural world. Through our platform, we aim to provide a wealth of resources, knowledge, and community engagement that empowers individuals to become active stewards of nature.</p>
+    </div>
+  </div>
+  </div>
+  
+  
+  
+<!-- End page content -->
+</div>
+
+
+<!-- Footer -->
+<footer class="footer-distributed">
+	<a href="#"><img class="footer-logo" src="logo-peeco.png" alt="Company Logo"></a>
+
+		<div class="footer-right">
+
+			<a href="#"><i class="fab fa-facebook"></i></a>
+			<a href="#"><i class="fab fa-twitter"></i></a>
+			<a href="#"><i class="fab fa-linkedin"></i></a>
+			<a href="#"><i class="fab fa-github"></i></a>
+
+		</div>
+		<div class="footer-middle">
+			<p class="footer-links">
+				<a class="link-1" href="guide.html">Guide</a>
+				<a href="blog.HTML">Organization</a>
+				<a href="#">Get Involved</a>
+			</p>
+		</div>
+		<div class="footer-left">
+			<p class="footer-contact">
+				<a>Phone: 0969123069</a>
+				<a>Email: tygrevolution@gmail.com</a>
+				<a>The Youthful Green Revolution &copy; 2023</a>
+			</p>
+		</div>
+	</footer>
+</body>
+</html>
